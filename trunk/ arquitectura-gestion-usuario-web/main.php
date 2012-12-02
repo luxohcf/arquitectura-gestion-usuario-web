@@ -136,7 +136,6 @@ $nomUser = $_SESSION['usuario'];
 					    	<div id="botonesFormRegMUsu">
 					    		<input type="button" id="btRegUsub"  value="Buscar" />
 					    		<input type="button" id="btRegUsuGrabar"  value="Grabar" />
-					    		<input type="button" id="btRegUsum"  value="Modificar" />
 					        	<input type="button" id="btRegUsue"  value="Eliminar" />
 					        	<input type="button" id="btRegUsuLimpiar" value="Limpiar" />
 					        </div>

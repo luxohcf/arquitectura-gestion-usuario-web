@@ -104,7 +104,7 @@ form.formRegistroUsuario, form.formIniSes label.error, label.error {
 	font-size: 12px;
 }
 input:focus { border: 1px dotted black; }
-input.error { border: 1px dotted red; }
+input.error { border: 2px inset red; }
 
 /* formulario registro usuario */
 #dMsg{

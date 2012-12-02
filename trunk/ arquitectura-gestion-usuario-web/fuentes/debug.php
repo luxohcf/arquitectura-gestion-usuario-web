@@ -18,5 +18,15 @@ echo "<hr>";
 //var_dump($V_PASS);
 //var_dump($V_BBDD);
 
+//echo 'Clave aleatoria: '.generar_clave(50).'';
+
+$clave = "123456";
+$hash = md5($clave);
+echo "<hr><h3>Claves</h3><hr>";
+echo $hash; 
+echo "<hr>";
+echo $clave;
+echo "<hr>";
+echo md5($hash);
 
 ?>

@@ -38,6 +38,10 @@ $nomUser = $_SESSION['usuario'];
 		@import "css/DT/demo_table_jui.css";
 		@import "css/DT/jquery.dataTables_themeroller.css";
 	</style>
+    <!-- validate Plugin -->
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/additional-methods.min.js"></script>
+    <!-- Funciones de la pagina -->
 	<script type="text/javascript" src="js/funcionesMain.js"></script>
 	<script type="text/javascript">
     	function cambiarContenido(item)
@@ -197,6 +201,12 @@ $nomUser = $_SESSION['usuario'];
 <div id="FormIniSesErr">
         <div id="dMsg">
         </div>
+</div>
+<div id="confirmB">
+    ¿Seguro que desea eliminar el registro?
+</div>
+<div id="confirmG">
+    ¿Seguro que desea guardar el registro?
 </div>
 </body>
 </html>

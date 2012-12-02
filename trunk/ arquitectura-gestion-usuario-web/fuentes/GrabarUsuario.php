@@ -76,33 +76,52 @@ else // Update
                        WHERE ID_USUARIO = '$idUsu'";
 
     $res = $mySqli->query($queryUpdInfUsu);
-    if($mySqli->affected_rows > 0)
-    {
-        $flagCommit = TRUE;
-    }
-
-    $queryUpdUsu = "UPDATE usuario SET
-                    PASSWORD  = '$psUsu',
-                    FLAG_ACTIVO  = $acUsu
-                    WHERE ID_USUARIO = '$idUsu'";
-
-    $res = $mySqli->query($queryUpdUsu);
-    if($mySqli->affected_rows > 0)
-    {
-        $flagCommit = TRUE;
-    }
     
-    if($flagCommit)
+    if($mySqli->errno == 0)
     {
-        $msg = "Se han guardado los cambios correctamente";
-        $mySqli->commit();
-        $mySqli->close();
+        if($mySqli->affected_rows > 0)
+        {
+            $flagCommit = TRUE;
+        }
+        
+        $queryUpdUsu = "UPDATE usuario SET
+                        PASSWORD  = '$psUsu',
+                        FLAG_ACTIVO  = $acUsu
+                        WHERE ID_USUARIO = '$idUsu'";
+    
+        $res = $mySqli->query($queryUpdUsu);
+        
+        if($mySqli->errno == 0)
+        {
+            if($mySqli->affected_rows > 0)
+            {
+                $flagCommit = TRUE;
+            }
+            
+            if($flagCommit)
+            {
+                $msg = "Se han guardado los cambios correctamente";
+                $mySqli->commit();
+                $mySqli->close();
+            }
+            else {
+               $mySqli->rollback(); 
+               $mySqli->close();
+               $msg = "No se han realizado cambios";
+            }
+        }
+        else {
+           $mySqli->rollback(); 
+           $mySqli->close();
+           $msg = "Error al modificar";
+        }
     }
     else {
        $mySqli->rollback(); 
        $mySqli->close();
-       $msg = "Error al ejecutar [$queryUpdInfUsu-$queryUpdUsu]";
+       $msg = "Error al modificar";
     }
+
 }
 
 if($depurar == TRUE)

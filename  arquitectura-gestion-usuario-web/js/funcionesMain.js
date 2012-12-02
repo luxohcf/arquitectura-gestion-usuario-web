@@ -13,6 +13,10 @@ $(function() {
 		$( "#FormRegUsuFecNac" ).datepicker({dateFormat: 'dd/mm/yy'});
 		$( "#FormRegUsuDesc" ).val('');
 		
+		/* Select de grupos */
+		$('#FormRegUsuGrupo').load('fuentes/Sel/Grupos.php');
+
+		/* Dialogo de mensajes */
 		$( "#FormIniSesErr" ).dialog({
 			autoOpen: false,
 			width: 300,
@@ -20,7 +24,105 @@ $(function() {
 			modal: true,
 			resizable: true
 		});
+		
+		/* Dialogo de confirmación para guardar */
+		$( '#confirmG' ).dialog({
+			autoOpen: false,
+			width: 300,
+			height: 260,
+			modal: true,
+			resizable: false,
+			buttons : {
+		        "Confirmar" : function() {
+		           $.post("fuentes/GrabarUsuario.php", $('#FormRegUsu').serialize(),
+						   function(data) {
+						   	var obj = jQuery.parseJSON(data);
+		
+					   		$('#dMsg').html( obj.html );
+					   		$('#FormIniSesErr').dialog( "open" );
+					   		oTabUsu.fnReloadAjax();
+						   });
 
+				   $(this).dialog("close");
+		        },
+		        "Cancelar" : function() {
+		          $(this).dialog("close");
+	        	}}
+		});
+		
+		/* Dialogo de confirmación para Eliminar */
+		$( '#confirmB' ).dialog({
+			autoOpen: false,
+			width: 300,
+			height: 260,
+			modal: true,
+			resizable: false,
+			buttons : {
+		        "Confirmar" : function() {
+		           
+		           $.post("fuentes/EliminarUsuario.php", $('#FormRegUsu').serialize(),
+						   function(data) {
+						   	var obj = jQuery.parseJSON(data);
+
+					   		$('#dMsg').html( obj.html );
+					   		$('#FormIniSesErr').dialog( "open" );
+					   		fRU.resetForm();
+						 	$( "#FormRegUsuIDUsu" ).val("");
+						 	$( "#FormRegUsuNomUsu" ).val("");
+						 	$( "#FormRegUsuEmail" ).val("");
+						 	$( "#FormRegUsuGrupo" ).val(0);
+						 	$( "#FormRegUsuFecNac" ).val("");
+						 	$( "#FormRegUsuActivo" ).attr('checked', false);
+						 	$( "#FormRegUsuPass1" ).val("");
+						 	$( "#FormRegUsuPass2" ).val("");
+						 	$( "#FormRegUsuDesc" ).val("");
+						 	oTabUsu.$('tr.row_selected').removeClass('row_selected');
+					   		oTabUsu.fnReloadAjax();
+						   });
+				   $(this).dialog("close");
+		        },
+		        "Cancelar" : function() {
+		          $(this).dialog("close");
+	        	}}
+		});
+		
+		/* Validaciones del formulario */
+		var fRU = $( '#FormRegUsu').validate({
+	                rules: {
+	                    FormRegUsuIDUsu: {required: true,
+	                    					 minlength: 5,
+	                    					 maxlength: 20},
+	                    FormRegUsuNomUsu: {required: true, 
+											 minlength: 5,
+	                    					 maxlength: 150},
+	                    FormRegUsuEmail: {required: true, 
+	                    				   email: true,
+	                    				   maxlength: 100},
+	                    FormRegUsuPass1: {required: true,
+	                    				   minlength: 6},
+	                    FormRegUsuPass2: {required: true,
+	                    				   equalTo: "#FormRegUsuPass1"},
+	                    FormRegUsuFecNac: {required: true}
+	                },
+	                messages: {
+	                    FormRegUsuIDUsu: {required: "",
+	                    					 minlength: "",
+	                    					 maxlength: ""},
+	                    FormRegUsuNomUsu: {required: "",
+	                    					 minlength: "",
+	                    					 maxlength: ""},
+	                    FormRegUsuEmail: {required: "", 
+	                    				   email: "",
+	                    				   maxlength: ""},
+	                    FormRegUsuPass1: {required: "",
+	                    				   minlength: ""},
+	                    FormRegUsuPass2: {required: "",
+	                    				   equalTo: ""},
+	                    FormRegUsuFecNac: {required: ""}
+	                }
+	         });
+		
+        /* Inicializacion de la tabla */
 		var oTabUsu = $('#table_id').dataTable({   
              bJQueryUI: true,
              sPaginationType: "full_numbers", //tipo de paginacion
@@ -66,6 +168,7 @@ $(function() {
                }
 		});
 		
+		/* Para cargar un elemento de la tabla */
 		$("#table_id tbody").delegate("tr", "click", function() {
 			
 			/* parte donde cambiamos el css */
@@ -93,8 +196,10 @@ $(function() {
 			    $("#FormRegUsuPass2").val(aData[6]);
 			    $("#FormRegUsuDesc").val(aData[7]);
 			}});
-			
+		
+        /* Boton para limpiar */
 	    $("#btRegUsuLimpiar").button().click( function() {
+	    	fRU.resetForm();
 		 	$( "#FormRegUsuIDUsu" ).val("");
 		 	$( "#FormRegUsuNomUsu" ).val("");
 		 	$( "#FormRegUsuEmail" ).val("");
@@ -108,27 +213,43 @@ $(function() {
 		 	oTabUsu.fnReloadAjax();
 		});
 		
+		/* Boton para Buscar */
 		$( "#btRegUsub" ).button().click( function() {
 			oTabUsu.fnReloadAjax();
 		});
 
+        /* Boton para cerrar sesion */
         $( "#bOut" ).button().click( function() {
             window.location.href = "IniSes/logout.php";
         });
         
+        /* Boton para guardar */
         $( "#btRegUsuGrabar" ).button().click( function() {
-        	
-           $.post("fuentes/GrabarUsuario.php", $('#FormRegUsu').serialize(),
-				   function(data) {
-				   	var obj = jQuery.parseJSON(data);
-
-			   		$('#dMsg').html( obj.html );
-			   		$('#FormIniSesErr').dialog( "open" );
-			   		oTabUsu.fnReloadAjax();
-				   });
+         	
+         	if($('#FormRegUsu').valid())
+         	{
+               $('#confirmG').dialog( "open" );
+		    }
+		    else
+		    {
+		   		$('#dMsg').html( 'Los campos destacados en rojo son obligatorios' );
+		   		$('#FormIniSesErr').dialog( "open" );
+		    }
         });
         
-        
+        /* Boton para eliminar */
+        $( "#btRegUsue" ).button().click( function() {
+
+         	if($('#FormRegUsuIDUsu').val() != '')
+         	{
+         	    $('#confirmB').dialog( "open" );
+		    }
+		    else
+		    {
+		   		$('#dMsg').html( 'Debe especificar un elemento para eliminar' );
+		   		$('#FormIniSesErr').dialog( "open" );
+		    }
+        });
 	});
 
 	$(function() {

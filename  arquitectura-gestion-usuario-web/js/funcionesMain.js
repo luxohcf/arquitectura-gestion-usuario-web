@@ -7,7 +7,6 @@ $(function() {
 		
 		$( "#btRegUsub" ).button();
 		$( "#btRegUsuGrabar" ).button();
-		$( "#btRegUsum" ).button();
 		$( "#btRegUsue" ).button();
 		$( "#btRegUsuLimpiar" ).button();
 		

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Conexion>
+	<Host>localhost</Host>
+	<User>AGUW</User>
+	<Password>AGUW</Password>
+	<BBDD>BD_Sistema</BBDD>
+	<depurarSQL>1</depurarSQL>
+	<depurarDUMP>0</depurarDUMP>
+</Conexion>

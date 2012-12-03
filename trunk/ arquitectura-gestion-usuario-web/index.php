@@ -1,3 +1,10 @@
+<?php
+@session_start();
+/*echo "<span>";
+echo var_dump($_SESSION);
+echo "</span>";*/
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="us">
 <head>
@@ -42,10 +49,28 @@
 <div id="principal">
     <div id="menu">
     	<div id="titulo">Arquitectura de Gestion de Usuarios Web</div>
-    	<div id="botones">
-        	<input type="button" id="regs" value="Registrarse" />
-        	<input type="button" id="inis" value="Iniciar sesion" />
-        </div>
+    	
+<?php
+if(isset($_SESSION['usuario']) == FALSE)
+{
+    echo "<div id='botones'>
+        	<input type='button' id='regs' value='Registrarse' />
+        	<input type='button' id='inis' value='Iniciar sesion' />
+        </div>";
+}
+else 
+{
+    $nomUser = $_SESSION['usuario'];
+    
+    echo "<div id='nameUsuario'>Bienvenido  $nomUser</div>
+          <div id='botones'>
+            <input type='button' id='bHome' value='Inicio' />
+            <input type='button' id='bMDatos' value='Mis Datos' />
+            <input type='button' id='bOut' value='Salir' />
+        </div>";
+}       
+
+?>
     </div>
     <div id="container">
       <table id="tablaPrincipal">

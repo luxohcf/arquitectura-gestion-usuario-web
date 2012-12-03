@@ -13,7 +13,7 @@ $Info_usuario['NOMBRE_PERFIL'] = (isset($_POST['FormRegPerNomPer']))?$_POST['For
 $query = "SELECT 
             IP.ID_PERFIL, 
             IP.NOMBRE_PERFIL, 
-            IP.FECHA_REGISTRO,
+            DATE_FORMAT(IP.FECHA_REGISTRO,'%d/%m/%Y') AS FECHA_REGISTRO,
              P.FLAG_ACTIVO,
             IP.DESCRIPCION_PERFIL
         FROM info_perfil IP 

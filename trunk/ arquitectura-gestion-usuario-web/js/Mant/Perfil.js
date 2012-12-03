@@ -24,7 +24,7 @@ $(function() {
 	
 				   		$('#dMsg').html( obj.html );
 				   		$('#FormIniSesErr').dialog( "open" );
-				   		oTabUsu.fnReloadAjax();
+				   		oTabPer.fnReloadAjax();
 					   });
 
 			   $(this).dialog("close");
@@ -69,14 +69,16 @@ $(function() {
 	var fRPer = $( '#FormRegPerfiles').validate({
                 rules: {
                     FormRegPerIDPer: {required: true,
-                    					 minlength: 5,
+                    					 digits: true,
+                    					 minlength: 1,
                     					 maxlength: 20},
                     FormRegPerNomPer: {required: true, 
 										 minlength: 5,
-                    					 maxlength: 150}
+                    					 maxlength: 50}
                 },
                 messages: {
                     FormRegPerIDPer: {required: "",
+                    					 digits: "",
                     					 minlength: "",
                     					 maxlength: ""},
                     FormRegPerNomPer: {required: "",

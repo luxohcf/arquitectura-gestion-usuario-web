@@ -20,6 +20,8 @@ $nomUser = $_SESSION['usuario'];
 	<title>Gestion de Usuarios Web</title>
 	<link href="css/dark-hive/jquery-ui-1.9.1.custom.css" rel="stylesheet">
 	<link href="css/estilos.css" rel="stylesheet">
+	<link href="css/Mant/Usuario.css" rel="stylesheet">
+	<link href="css/Mant/Perfil.css" rel="stylesheet">
 	<script src="js/jquery-1.8.2.js"></script>
 	<script src="js/jquery-ui-1.9.1.custom.js"></script>
 	<!-- JScrollable -->
@@ -43,20 +45,8 @@ $nomUser = $_SESSION['usuario'];
     <script type="text/javascript" src="js/additional-methods.min.js"></script>
     <!-- Funciones de la pagina -->
 	<script type="text/javascript" src="js/funcionesMain.js"></script>
-	<script type="text/javascript">
-    	function cambiarContenido(item)
-    	{
-    		document.getElementById('P').style.display='none';
-    		document.getElementById('S').style.display='none';
-    		document.getElementById('A').style.display='none';
-    		document.getElementById('C').style.display='none';
-    		document.getElementById('F').style.display='none';
-    		document.getElementById('E').style.display='none';
-    		document.getElementById('D').style.display='none';
-    		document.getElementById('T').style.display='none';
-    		document.getElementById(item).style.display='block';
-    	};
-	</script>
+	<script type="text/javascript" src="js/Mant/Usuario.js"></script>
+	<script type="text/javascript" src="js/Mant/Perfil.js"></script>
 </head>
 <body>
 <div id="principal">
@@ -168,7 +158,53 @@ $nomUser = $_SESSION['usuario'];
 		       		S - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
 		       	</div>
 		       	<div id="A" style="display: none">
-		       		A - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+		       		    <div id="contenidoFormRegPerfiles">
+                            <form id="FormRegPerfiles">
+                            <div id="datosFormRegPerfiles">
+                                <table id="tablaMPerfiles">
+                                <tr>
+                                    <td><p>ID Perfil</p></td>
+                                    <td><input id="FormRegPerIDPer" name="FormRegPerIDPer" type="text" /></td>
+                                    <td><p>&nbsp; Nombre Perfil      </p></td>
+                                    <td><input id="FormRegPerNomPer" name="FormRegPerNomPer" type="text" /></td>
+                                </tr>
+                                <tr>
+                                    <td><p>&nbsp; Activo </p></td>
+                                    <td><input id="FormRegPerActivo" name="FormRegPerActivo" type="checkbox" /></td>
+                                </tr>
+                                <tr >
+                                    <td><p>Descripción </p></td>
+                                    <td colspan="3"><textarea id="FormRegPerDesc" name="FormRegPerDesc" > </textarea></td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                </table>
+                            </div>
+                            </form>
+                            <br>
+                            <div id="botonesFormRegMPer">
+                                <input type="button" id="btRegPerB"  value="Buscar" />
+                                <input type="button" id="btRegPerG"  value="Grabar" />
+                                <input type="button" id="btRegPerE"  value="Eliminar" />
+                                <input type="button" id="btRegPerL"  value="Limpiar" />
+                            </div>
+                            <div id="contTablaPer">
+                                <table id="tablaPerfiles">
+                                <thead>
+                                    <tr>
+                                        <th>ID Perfil</th>
+                                        <th>Nombre</th>
+                                        <th>Fecha Registro</th>
+                                        <th>Activo</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 
+                                </tbody>
+                            </table>
+                         </div>
+                        </div>
 		       	</div>
 		       	<div id="C" style="display: none">
 		       		C - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
@@ -206,6 +242,12 @@ $nomUser = $_SESSION['usuario'];
     ¿Seguro que desea eliminar el registro?
 </div>
 <div id="confirmG">
+    ¿Seguro que desea guardar el registro?
+</div>
+<div id="confirmPerE">
+    ¿Seguro que desea eliminar el registro?
+</div>
+<div id="confirmPerG">
     ¿Seguro que desea guardar el registro?
 </div>
 </body>

@@ -26,7 +26,7 @@ if($mySqli->affected_rows > 0)
 {
     while($row = $res->fetch_assoc())
     {
-      echo "<option value=".$row['ID_GRUPO'].">".$row['NOMBRE_GRUPO']."</option>";
+      echo "<option value='".$row['ID_GRUPO']."'>".$row['NOMBRE_GRUPO']."</option>";
     }
 }
 ?>

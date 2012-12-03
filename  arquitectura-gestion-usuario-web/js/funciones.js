@@ -1,7 +1,9 @@
 /* Funciones index.html */
 $(function() {
 
-		$( "#button" ).button();
+		$( "#bOut" ).button();
+		$( "#bHome" ).button();
+		$( "#bMDatos" ).button();
 		$( "#regs" ).button();
 		$( "#inis" ).button();
 		$( "#menuUl" ).menu();
@@ -68,6 +70,7 @@ $(function() {
 				 	$( "#rFormRegUsuFecNac" ).val("");	  
 				},
 		});
+
 		$("#btRegUsuLimpiar").button().click( function() {
 			fRU.resetForm();
 		 	$( "#rFormRegUsuUsuario" ).val("");
@@ -155,7 +158,20 @@ $(function() {
          	}
          });
 
-
+        /* Boton para cerrar sesion */
+        $( "#bOut" ).button().click( function() {
+            window.location.href = "IniSes/logout.php";
+        });
+        
+        /* Boton para abrir el main */
+        $( "#bMDatos" ).button().click( function() {
+            window.location.href = "main.php";
+        });
+        
+        /* Boton para abrir el index */
+        $( "#bHome" ).button().click( function() {
+            window.location.href = "index.php";
+        });
 		
 	});
 

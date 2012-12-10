@@ -25,23 +25,69 @@ $html = "<script type='text/javascript'>
              
             });
          </script>
+         <link href='css/Mant/Perfiles.css' rel='stylesheet'>
          <fieldset>
-            <legend>Perfiles</legend>
-            <select name='PerAsignados' id='PerAsignados' multiple size='5'>
-              <option value='1'>Item 1</option>
-              <option value='2'>Item 2</option>
-              <option value='3'>Item 3</option>
-              <option value='4'>Item 4</option>
-            </select>
+            <legend id='legenPerfiles'>Perfiles</legend>
+            <select name='PerAsignados' id='PerAsignados' multiple size='10'>";
+			
+
+	$query = "SELECT P.ID_PERFIL, P.NOMBRE_PERFIL
+	          FROM info_perfil P INNER JOIN
+	          perfil_grupo_usuario PGU ON P.ID_PERFIL = PGU.ID_PERFIL
+	          WHERE PGU.ID_USUARIO = '$id'";
+
+    if($mySqli->connect_errno)
+    {
+        $aErrores["Error conexion MySql"] = $mySqli->connect_error;
+    }
+    $res = $mySqli->query($query);
+	
+    /* Iterar los que ya tengo */
+    if($mySqli->affected_rows > 0)
+    {
+        while($row = $res->fetch_assoc())
+        {
+ 
+           $html .= "<option value='".$row['ID_PERFIL']."'>".$row['NOMBRE_PERFIL']."</option>";
+        }
+    }
+ 
+$html .= "</select>
+			<div id='SepPerfilesBotones'>
+            	<a href='JavaScript:void(0);' id='btn-add'>&raquo;</a>
+            	
+            	<a href='JavaScript:void(0);' id='btn-remove'>&laquo;</a>
+            </div>
          
-            <a href='JavaScript:void(0);' id='btn-add'>Add &raquo;</a>
-            <a href='JavaScript:void(0);' id='btn-remove'>&laquo; Remove</a>
-         
-            <select name='PerListado' id='PerListado' multiple size='5'>
-              <option value='5'>Item 5</option>
-              <option value='6'>Item 6</option>
-              <option value='7'>Item 7</option>
-            </select>
+            <select name='PerListado' id='PerListado' multiple size='10'>";
+			
+			/* Iterar el resto */
+	$query = "SELECT IP.ID_PERFIL, IP.NOMBRE_PERFIL
+	          FROM info_perfil IP INNER JOIN
+	          perfil P ON P.ID_PERFIL = IP.ID_PERFIL
+	          WHERE
+	             NOT EXISTS (SELECT 1 FROM perfil_grupo_usuario PGU 
+	                         WHERE PGU.ID_PERFIL = IP.ID_PERFIL
+	                         AND PGU.ID_USUARIO = '$id') AND
+	          P.ID_CLIENTE = $idCli ";
+
+    if($mySqli->connect_errno)
+    {
+        $aErrores["Error conexion MySql"] = $mySqli->connect_error;
+    }
+    $res = $mySqli->query($query);
+	
+    /* Iterar los que ya tengo */
+    if($mySqli->affected_rows > 0)
+    {
+        while($row = $res->fetch_assoc())
+        {
+ 
+           $html .= "<option value='".$row['ID_PERFIL']."'>".$row['NOMBRE_PERFIL']."</option>";
+        }
+    }
+
+$html .= "</select>
          </fieldset>";
 
 $data["html"] = "$html";

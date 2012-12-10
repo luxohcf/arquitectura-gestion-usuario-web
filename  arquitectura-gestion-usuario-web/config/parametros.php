@@ -1,7 +1,8 @@
 <?php
 require_once("comunes.php");
 /* Archivo de configuracion */
-$url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+//$url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+$url = "http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
 $sXmlConfig = "$url/Layout/config/Config.xml";;
 $xml = simplexml_load_file($sXmlConfig);
 

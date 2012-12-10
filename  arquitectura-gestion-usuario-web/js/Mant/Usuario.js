@@ -6,12 +6,38 @@ $(function() {
 	$( "#btRegUsuGrabar" ).button();
 	$( "#btRegUsue" ).button();
 	$( "#btRegUsuLimpiar" ).button();
+	$( "#btRegUsuPerfiles" ).button();
 	
 	$( "#FormRegUsuFecNac" ).datepicker({dateFormat: 'dd/mm/yy'});
 	$( "#FormRegUsuDesc" ).val('');
 	
 	/* Select de grupos */
 	$('#FormRegUsuGrupo').load('./fuentes/Sel/Grupos.php');
+
+    /* Dialogo para asignación de perfiles */
+	$( '#UsuPerfiles' ).dialog({
+		autoOpen: false,
+		width: 600,
+		height: 500,
+		modal: true,
+		resizable: false,
+		buttons : {
+	        "Confirmar" : function() {
+	           $.post("fuentes/AsignarPerfiles.php", $('#FormUsuPerfiles').serialize(),
+					   function(data) {
+					   	var obj = jQuery.parseJSON(data);
+	
+				   		$('#dMsg').html( obj.html );
+				   		$('#FormIniSesErr').dialog( "open" );
+				   		oTabUsu.fnReloadAjax();
+					   });
+
+			   $(this).dialog("close");
+	        },
+	        "Cancelar" : function() {
+	          $(this).dialog("close");
+        	}}
+	});
 	
 	/* Dialogo de confirmación para guardar */
 	$( '#confirmG' ).dialog({
@@ -227,7 +253,25 @@ $(function() {
 	    }
     });
 
+    /* Boton para asignar perfiles a un usuario */
+    $( "#btRegUsuPerfiles" ).button().click( function() {
 
+     	if($('#FormRegUsuIDUsu').val() != '')
+     	{
+           $.post("fuentes/Sel/Perfiles.php", $('#FormRegUsu').serialize(),
+				   function(data) {
+				   	var obj = jQuery.parseJSON(data);
+
+			   		$('#UsuPerfiles').html( obj.html );
+			   		$('#UsuPerfiles').dialog( "open" );
+				   });
+	    }
+	    else
+	    {
+	   		$('#dMsg').html( 'Debe especificar un usuario' );
+	   		$('#FormIniSesErr').dialog( "open" );
+	    }
+    });
 });
 
 $(function() {

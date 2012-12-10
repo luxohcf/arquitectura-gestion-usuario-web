@@ -6,11 +6,11 @@ $msg = "";
 
 @session_start();
 $idCli = $_SESSION['id_Cliente'];
-$idPer = (isset($_POST['FormRegPerIDPer']))?$_POST['FormRegPerIDPer']:NULL;
+$id = (isset($_POST['FormRegRecIDRec']))?$_POST['FormRegRecIDRec']:NULL;
 
 $mySqli = new mysqli($V_HOST, $V_USER, $V_PASS, $V_BBDD);
 
-$querySelect = "SELECT 1 FROM PERFIL WHERE ID_PERFIL = '$idPer' AND ID_CLIENTE = '$idCli'";
+$querySelect = "SELECT 1 FROM RECURSO WHERE ID_RECURSO = '$id' AND ID_CLIENTE = '$idCli'";
 
 if($mySqli->connect_errno)
 {
@@ -23,17 +23,8 @@ if($mySqli->affected_rows > 0) // delete
     $mySqli->autocommit(FALSE);
     $flagCommit = FALSE;
 
-    $queryDelPerGrUsu = "DELETE FROM PERFIL_GRUPO_USUARIO
-                       WHERE ID_PERFIL = '$idPer'";
-
-    $res = $mySqli->query($queryDelPerGrUsu);
-    if($mySqli->affected_rows > 0)
-    {
-        $flagCommit = TRUE;
-    }
-    
     $queryDelPerRec = "DELETE FROM PERFIL_RECURSO
-                       WHERE ID_PERFIL = '$idPer'";
+                       WHERE ID_RECURSO = '$id'";
 
     $res = $mySqli->query($queryDelPerRec);
     if($mySqli->affected_rows > 0)
@@ -41,19 +32,19 @@ if($mySqli->affected_rows > 0) // delete
         $flagCommit = TRUE;
     }
 
-    $queryDelPer = "DELETE FROM PERFIL
-                       WHERE ID_PERFIL = '$idPer'";
+    $queryDel = "DELETE FROM RECURSO
+                       WHERE ID_RECURSO = '$id'";
 
-    $res = $mySqli->query($queryDelPer);
+    $res = $mySqli->query($queryDel);
     if($mySqli->affected_rows > 0)
     {
         $flagCommit = TRUE;
     }
 
-    $queryDelInfPer = "DELETE FROM INFO_PERFIL
-                    WHERE ID_PERFIL = '$idPer'";
+    $queryDelInf = "DELETE FROM INFO_RECURSO
+                    WHERE ID_RECURSO = '$id'";
 
-    $res = $mySqli->query($queryDelInfPer);
+    $res = $mySqli->query($queryDelInf);
     if($mySqli->affected_rows > 0)
     {
         $flagCommit = TRUE;
@@ -61,24 +52,24 @@ if($mySqli->affected_rows > 0) // delete
     
     if($flagCommit)
     {
-        $msg = "Se ha eliminado el perfil correctamente";
+        $msg = "Se ha eliminado el recurso correctamente";
         $mySqli->commit();
         $mySqli->close();
     }
     else {
        $mySqli->rollback(); 
        $mySqli->close();
-       $msg = "Error al eliminar el perfil";
+       $msg = "Error al eliminar el recurso";
     }
 }
 else
 {
-    $msg = "El perfil no existe";
+    $msg = "El recurso no existe";
 }
 
 if($depurar == TRUE)
 {
-    $data["html"] = "$msg - $querySelect - $queryDelPerGrUsu - $queryDelPerRec - $queryDelPer - $queryDelInfPer ";
+    $data["html"] = "$msg - $querySelect - $queryDelPerRec - $queryDel - $queryDelInf ";
 }
 else 
 {

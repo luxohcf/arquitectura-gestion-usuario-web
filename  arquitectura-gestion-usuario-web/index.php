@@ -1,8 +1,5 @@
 <?php
 @session_start();
-/*echo "<span>";
-echo var_dump($_SESSION);
-echo "</span>";*/
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -61,6 +58,10 @@ if(isset($_SESSION['usuario']) == FALSE)
 else 
 {
     $nomUser = $_SESSION['usuario'];
+    if(strlen($nomUser) > 12)
+    {
+        $nomUser = substr($nomUser, 0, 11)."...";
+    }
     
     echo "<div id='nameUsuario'>Bienvenido  $nomUser</div>
           <div id='botones'>

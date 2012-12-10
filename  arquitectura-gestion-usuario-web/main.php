@@ -11,6 +11,10 @@ if(isset($_SESSION['usuario']) == FALSE)
 }
 
 $nomUser = $_SESSION['usuario'];
+if(strlen($nomUser) > 12)
+{
+    $nomUser = substr($nomUser, 0, 11)."...";
+}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -22,6 +26,8 @@ $nomUser = $_SESSION['usuario'];
 	<link href="css/estilos.css" rel="stylesheet">
 	<link href="css/Mant/Usuario.css" rel="stylesheet">
 	<link href="css/Mant/Perfil.css" rel="stylesheet">
+	<link href="css/Mant/Recurso.css" rel="stylesheet">
+	<link href="css/Mant/Accion.css" rel="stylesheet">
 	<script src="js/jquery-1.8.2.js"></script>
 	<script src="js/jquery-ui-1.9.1.custom.js"></script>
 	<!-- JScrollable -->
@@ -47,6 +53,8 @@ $nomUser = $_SESSION['usuario'];
 	<script type="text/javascript" src="js/funcionesMain.js"></script>
 	<script type="text/javascript" src="js/Mant/Usuario.js"></script>
 	<script type="text/javascript" src="js/Mant/Perfil.js"></script>
+	<script type="text/javascript" src="js/Mant/Recurso.js"></script>
+	<script type="text/javascript" src="js/Mant/Accion.js"></script>
 </head>
 <body>
 <div id="principal">
@@ -101,9 +109,6 @@ $nomUser = $_SESSION['usuario'];
 					 				<td><p>&nbsp; Grupo</p></td>
 					 				<td>
 					 					<select id="FormRegUsuGrupo" name="FormRegUsuGrupo">
-					 						<option value="0">Seleccione un grupo</option>
-					 						<option value="1">Grupo 1</option>
-					 						<option value="2">Grupo 2</option>
 					 					</select>
 					 				</td>
 						 		</tr>
@@ -132,6 +137,7 @@ $nomUser = $_SESSION['usuario'];
 					    		<input type="button" id="btRegUsuGrabar"  value="Grabar" />
 					        	<input type="button" id="btRegUsue"  value="Eliminar" />
 					        	<input type="button" id="btRegUsuLimpiar" value="Limpiar" />
+					        	<input type="button" id="btRegUsuPerfiles" value="Perfiles" />
 					        </div>
 							<div id="contTabla">
 						 		<table id="table_id">
@@ -155,7 +161,7 @@ $nomUser = $_SESSION['usuario'];
 					 	</div>
 		       	</div>
 		       	<div id="S" style="display: none">
-		       		S - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+		       		<h3>No disponible en esta versión</h3>
 		       	</div>
 		       	<div id="A" style="display: none">
 		       		    <div id="contenidoFormRegPerfiles">
@@ -207,13 +213,105 @@ $nomUser = $_SESSION['usuario'];
                         </div>
 		       	</div>
 		       	<div id="C" style="display: none">
-		       		C - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                    <div id="contenidoFormRegRecursos">
+                            <form id="FormRegRecursos">
+                            <div id="datosFormRegRecursos">
+                                <table id="tablaMRecursos">
+                                <tr>
+                                    <td><p>ID Recurso</p></td>
+                                    <td><input id="FormRegRecIDRec" name="FormRegRecIDRec" type="text" /></td>
+                                    <td><p>&nbsp; Nombre Recurso      </p></td>
+                                    <td><input id="FormRegRecNomRec" name="FormRegRecNomRec" type="text" /></td>
+                                </tr>
+                                <tr>
+                                    <td><p>&nbsp; Activo </p></td>
+                                    <td><input id="FormRegRecActivo" name="FormRegRecActivo" type="checkbox" /></td>
+                                </tr>
+                                <tr >
+                                    <td><p>Descripción </p></td>
+                                    <td colspan="3"><textarea id="FormRegRecDesc" name="FormRegRecDesc" > </textarea></td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                </table>
+                            </div>
+                            </form>
+                            <br>
+                            <div id="botonesFormRegMRec">
+                                <input type="button" id="btRegRecB"  value="Buscar" />
+                                <input type="button" id="btRegRecG"  value="Grabar" />
+                                <input type="button" id="btRegRecE"  value="Eliminar" />
+                                <input type="button" id="btRegRecL"  value="Limpiar" />
+                            </div>
+                            <div id="contTablaRec">
+                                <table id="tablaRecursos">
+                                <thead>
+                                    <tr>
+                                        <th>ID Recurso</th>
+                                        <th>Nombre</th>
+                                        <th>Fecha Registro</th>
+                                        <th>Activo</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 
+                                </tbody>
+                            </table>
+                         </div>
+                        </div>
 		       	</div>
 		       	<div id="F" style="display: none">
-		       		F - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                    <div id="contenidoFormRegAcciones">
+                            <form id="FormRegAcciones">
+                            <div id="datosFormRegAcciones">
+                                <table id="tablaMAcciones">
+                                <tr>
+                                    <td><p>ID Acción</p></td>
+                                    <td><input id="FormRegAccIDAcc" name="FormRegAccIDAcc" type="text" /></td>
+                                    <td><p>&nbsp; Nombre Acción      </p></td>
+                                    <td><input id="FormRegAccNomAcc" name="FormRegAccNomAcc" type="text" /></td>
+                                </tr>
+                                <tr>
+                                    <td><p>&nbsp; Activo </p></td>
+                                    <td><input id="FormRegAccActivo" name="FormRegAccActivo" type="checkbox" /></td>
+                                </tr>
+                                <tr >
+                                    <td><p>Descripción </p></td>
+                                    <td colspan="3"><textarea id="FormRegAccDesc" name="FormRegAccDesc" > </textarea></td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                </table>
+                            </div>
+                            </form>
+                            <br>
+                            <div id="botonesFormRegMAcc">
+                                <input type="button" id="btRegAccB"  value="Buscar" />
+                                <input type="button" id="btRegAccG"  value="Grabar" />
+                                <input type="button" id="btRegAccE"  value="Eliminar" />
+                                <input type="button" id="btRegAccL"  value="Limpiar" />
+                            </div>
+                            <div id="contTablaAcc">
+                                <table id="tablaAcciones">
+                                <thead>
+                                    <tr>
+                                        <th>ID Acción</th>
+                                        <th>Nombre</th>
+                                        <th>Fecha Registro</th>
+                                        <th>Activo</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 
+                                </tbody>
+                            </table>
+                         </div>
+                        </div>
 		       	</div>
 		       	<div id="E" style="display: none">
-		       		E - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+		       		<h3>No disponible en esta versión</h3>
 		       	</div>
 		       	<div id="D" style="display: none">
 		       		D - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
@@ -238,6 +336,11 @@ $nomUser = $_SESSION['usuario'];
         <div id="dMsg">
         </div>
 </div>
+<form id="FormUsuPerfiles">
+    <div id="UsuPerfiles">
+        
+    </div>
+</form>
 <div id="confirmB">
     ¿Seguro que desea eliminar el registro?
 </div>
@@ -248,6 +351,18 @@ $nomUser = $_SESSION['usuario'];
     ¿Seguro que desea eliminar el registro?
 </div>
 <div id="confirmPerG">
+    ¿Seguro que desea guardar el registro?
+</div>
+<div id="confirmRecE">
+    ¿Seguro que desea eliminar el registro?
+</div>
+<div id="confirmRecG">
+    ¿Seguro que desea guardar el registro?
+</div>
+<div id="confirmAccE">
+    ¿Seguro que desea eliminar el registro?
+</div>
+<div id="confirmAccG">
     ¿Seguro que desea guardar el registro?
 </div>
 </body>

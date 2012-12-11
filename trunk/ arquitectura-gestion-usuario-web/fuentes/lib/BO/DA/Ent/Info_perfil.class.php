@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Info_perfil autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Info_perfil Autor: Luxo Lizama 
 ********************************************************/  
 
 class Info_perfil{

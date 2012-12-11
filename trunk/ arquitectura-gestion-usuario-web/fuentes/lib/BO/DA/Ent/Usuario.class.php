@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Usuario autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Usuario Autor: Luxo Lizama 
 ********************************************************/  
 
 class Usuario{

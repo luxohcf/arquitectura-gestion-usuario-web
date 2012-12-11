@@ -1,8 +1,8 @@
 <?php
 require('DA\Info_usuario.DA.class.php');
 /********************************************************  
-* Clase Info_usuarioBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Info_usuarioBO
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class Info_usuarioBO {

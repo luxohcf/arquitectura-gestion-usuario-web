@@ -13,7 +13,7 @@ $ds = (isset($_POST['FormRegRecDesc']))?$_POST['FormRegRecDesc']:NULL;
 
 $mySqli = new mysqli($V_HOST, $V_USER, $V_PASS, $V_BBDD);
 
-$querySelect = "SELECT 1 FROM RECURSO WHERE ID_RECURSO = '$id'";
+$querySelect = "SELECT 1 FROM RECURSO WHERE ID_RECURSO = '$id' AND ID_CLIENTE = '$idCli'";
 
 if($mySqli->connect_errno)
 {

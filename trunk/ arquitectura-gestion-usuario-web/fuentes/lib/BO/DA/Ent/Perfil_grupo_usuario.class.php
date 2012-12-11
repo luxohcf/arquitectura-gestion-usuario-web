@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Perfil_grupo_usuario autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Perfil_grupo_usuario Autor: Luxo Lizama 
 ********************************************************/  
 
 class Perfil_grupo_usuario{

@@ -20,9 +20,9 @@ CREATE DATABASE BD_Sistema;
 CREATE USER 'AGUW'@'localhost' IDENTIFIED BY 'AGUW';
 GRANT ALL ON BD_Sistema.* TO 'AGUW'@'localhost';
 
-5.- Importar el fichero "" sobre la base de datos BD_Sistema para cargar las tablas
+5.- Importar el fichero "ScriptMysqlAGUW.sql" sobre la base de datos BD_Sistema para cargar las tablas
 
-6.- Importar el fichero "" sobre la base de datos BD_Sistema para cargar los datos
+6.- Importar el fichero "ScriptCargaDatosPrueba.sql" sobre la base de datos BD_Sistema para cargar los datos
 
 7.- Ingresar a la ruta "http://localhost/Layout/" y comprobar que se muestra el sitio
 

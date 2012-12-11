@@ -13,7 +13,7 @@ $ds = (isset($_POST['FormRegAccDesc']))?$_POST['FormRegAccDesc']:NULL;
 
 $mySqli = new mysqli($V_HOST, $V_USER, $V_PASS, $V_BBDD);
 
-$querySelect = "SELECT 1 FROM ACCION WHERE ID_ACCION = '$id'";
+$querySelect = "SELECT 1 FROM ACCION WHERE ID_ACCION = '$id' AND ID_CLIENTE = '$idCli'";
 
 if($mySqli->connect_errno)
 {

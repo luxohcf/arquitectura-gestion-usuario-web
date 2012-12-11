@@ -4,6 +4,6 @@
 	<User>AGUW</User>
 	<Password>AGUW</Password>
 	<BBDD>BD_Sistema</BBDD>
-	<depurarSQL>1</depurarSQL>
+	<depurarSQL>0</depurarSQL>
 	<depurarDUMP>0</depurarDUMP>
 </Conexion>

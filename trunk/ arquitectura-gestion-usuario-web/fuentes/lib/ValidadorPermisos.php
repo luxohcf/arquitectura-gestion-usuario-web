@@ -51,7 +51,7 @@ class Validador
     
         /* Ejecutamos la query que retorna el permiso */
         
-        $query = "SELECT PerRec.PERMISO AS PERMISO
+        $query = "SELECT MAX(PerRec.PERMISO) AS PERMISO
                     FROM 
                          USUARIO Usu INNER JOIN
                          PERFIL_GRUPO_USUARIO PerfGruUsu ON Usu.ID_USUARIO = PerfGruUsu.ID_USUARIO INNER JOIN

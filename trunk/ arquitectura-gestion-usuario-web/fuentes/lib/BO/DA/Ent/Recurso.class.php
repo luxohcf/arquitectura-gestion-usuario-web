@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Recurso autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Recurso Autor: Luxo Lizama 
 ********************************************************/  
 
 class Recurso{

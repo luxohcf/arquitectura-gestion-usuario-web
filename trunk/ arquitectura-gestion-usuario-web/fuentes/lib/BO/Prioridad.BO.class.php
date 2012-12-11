@@ -2,8 +2,8 @@
 
 include('..\DA\Prioridad.DA.class.php');
 /********************************************************  
-* Clase PrioridadBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase PrioridadBO
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class PrioridadBO {

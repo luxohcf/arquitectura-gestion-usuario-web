@@ -18,7 +18,7 @@ $mlUsu = (isset($_POST['FormRegUsuEmail']))?$_POST['FormRegUsuEmail']:NULL;
 $idUsu = str_replace(" ", "", $idUsu);
 $mySqli = new mysqli($V_HOST, $V_USER, $V_PASS, $V_BBDD);
 
-$querySelect = "SELECT 1 FROM usuario WHERE ID_USUARIO = '$idUsu'";
+$querySelect = "SELECT 1 FROM usuario WHERE ID_USUARIO = '$idUsu' AND ID_CLIENTE = '$idCli'";
 
 if($mySqli->connect_errno)
 {
@@ -54,13 +54,13 @@ if($mySqli->affected_rows == 0) // Insert
         else {
            $mySqli->rollback(); 
            $mySqli->close();
-           $msg = "Error al ejecutar [$queryInsUsu]";
+           $msg = "Error al insertar";
         }
     }
     else {
        $mySqli->rollback(); 
        $mySqli->close();
-       $msg = "Error al ejecutar [$queryInsInfUsu]";
+       $msg = "Error al insertar";
     }
 }
 else // Update 

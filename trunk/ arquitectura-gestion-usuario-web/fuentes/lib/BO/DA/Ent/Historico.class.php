@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Historico autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Historico Autor: Luxo Lizama 
 ********************************************************/  
 
 class Historico{

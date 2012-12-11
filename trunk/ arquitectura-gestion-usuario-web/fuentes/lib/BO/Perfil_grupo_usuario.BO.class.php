@@ -2,8 +2,8 @@
 
 include('..\DA\Perfil_grupo_usuario.DA.class.php');
 /********************************************************  
-* Clase Perfil_grupo_usuarioBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Perfil_grupo_usuarioBO 
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class Perfil_grupo_usuarioBO {

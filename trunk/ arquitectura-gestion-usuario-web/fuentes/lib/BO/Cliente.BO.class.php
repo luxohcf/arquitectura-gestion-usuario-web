@@ -2,8 +2,8 @@
 
 include('DA\Cliente.DA.class.php');
 /********************************************************  
-* Clase ClienteBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase ClienteBO  
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class ClienteBO {

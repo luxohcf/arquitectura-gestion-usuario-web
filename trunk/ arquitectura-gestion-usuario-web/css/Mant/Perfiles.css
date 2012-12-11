@@ -1,27 +1,21 @@
-/* Estilos para el mantenedor de perfiles */
+/* Estilos para el asignador de perfiles */
 
 #PerAsignados, #PerListado{
 	background: #9A9A9A;
 	color: black;
-	width: 40%;
-	height: 100%;
+	width: 250px;
+	height: 90%;
 	font-family: Arial, Verdana, sans-serif;
 }
 
-
 #PerAsignados {
 	float: left;
+}
 
-}
-#SepPerfilesBotones{
-	/*text-align: center;*/
-}
 #PerListado{
 	float: right;
 }
-
-#legenPerfiles
-{
-  /*background: #9A9A9A;*/
- border-color: #9A9A9A;
+#tablaAsigPerfiles{
+	width:100%;
 }
+ 

@@ -2,8 +2,8 @@
 
 include('..\DA\Perfil.DA.class.php');
 /********************************************************  
-* Clase PerfilBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase PerfilBO 
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class PerfilBO {

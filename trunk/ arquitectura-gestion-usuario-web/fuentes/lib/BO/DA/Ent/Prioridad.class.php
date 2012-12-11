@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Prioridad autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Prioridad Autor: Luxo Lizama 
 ********************************************************/  
 
 class Prioridad{

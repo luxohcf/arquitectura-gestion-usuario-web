@@ -5,31 +5,17 @@ $idCli = $_SESSION['id_Cliente'];
 $id = (isset($_POST['FormRegUsuIDUsu']))?$_POST['FormRegUsuIDUsu']:NULL;
 $mySqli = new mysqli($V_HOST, $V_USER, $V_PASS, $V_BBDD);
 
-//http://www.designchemical.com/blog/index.php/jquery/create-add-remove-select-lists-using-jquery/
-
-$html = "<script type='text/javascript'>
-            $(document).ready(function() {
-             
-                $('#btn-add').click(function(){
-                    $('#PerAsignados option:selected').each( function() {
-                            $('#PerListado').append(\"<option value='\"+$(this).val()+\"'>\"+$(this).text()+\"</option>\");
-                        $(this).remove();
-                    });
-                });
-                $('#btn-remove').click(function(){
-                    $('#PerListado option:selected').each( function() {
-                        $('#PerAsignados').append(\"<option value='\"+$(this).val()+\"'>\"+$(this).text()+\"</option>\");
-                        $(this).remove();
-                    });
-                });
-             
-            });
-         </script>
+$html = "<script type='text/javascript' src='js/Mant/Perfiles.js'></script>
          <link href='css/Mant/Perfiles.css' rel='stylesheet'>
-         <fieldset>
-            <legend id='legenPerfiles'>Perfiles</legend>
+         <table id='tablaAsigPerfiles'>
+         <tr>
+            <td style='width:45%'>Asignados</td>
+            <td style='width:10%'></td>
+            <td style='width:45%'>Disponibles</td>
+         </tr>
+         <tr>
+            <td>
             <select name='PerAsignados' id='PerAsignados' multiple size='10'>";
-			
 
 	$query = "SELECT P.ID_PERFIL, P.NOMBRE_PERFIL
 	          FROM info_perfil P INNER JOIN
@@ -53,13 +39,13 @@ $html = "<script type='text/javascript'>
     }
  
 $html .= "</select>
-			<div id='SepPerfilesBotones'>
+          </td>
+          <td>
+                <a href='JavaScript:void(0);' id='btn-remove'>&laquo;</a>
             	<a href='JavaScript:void(0);' id='btn-add'>&raquo;</a>
-            	
-            	<a href='JavaScript:void(0);' id='btn-remove'>&laquo;</a>
-            </div>
-         
-            <select name='PerListado' id='PerListado' multiple size='10'>";
+          </td>
+          <td>
+          <select name='PerListado' id='PerListado' multiple size='10'>";
 			
 			/* Iterar el resto */
 	$query = "SELECT IP.ID_PERFIL, IP.NOMBRE_PERFIL
@@ -87,8 +73,7 @@ $html .= "</select>
         }
     }
 
-$html .= "</select>
-         </fieldset>";
+$html .= "</td></tr></table></select>";
 
 $data["html"] = "$html";
 echo json_encode($data);

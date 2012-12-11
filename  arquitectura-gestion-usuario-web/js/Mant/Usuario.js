@@ -23,7 +23,11 @@ $(function() {
 		resizable: false,
 		buttons : {
 	        "Confirmar" : function() {
-	           $.post("fuentes/AsignarPerfiles.php", $('#FormUsuPerfiles').serialize(),
+	        	
+			   var domelts = $('#PerAsignados option');
+			   var values = $.map(domelts, function(elt, i) { return $(elt).val();});
+			   var idUser = $('#FormRegUsuIDUsu').val();
+	           $.post("fuentes/AsignarPerfiles.php", { ids:values,idUser:idUser},
 					   function(data) {
 					   	var obj = jQuery.parseJSON(data);
 	

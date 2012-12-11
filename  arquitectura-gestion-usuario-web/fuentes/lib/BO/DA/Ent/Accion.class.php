@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Accion autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Accion autogenerada Autor: Luxo Lizama 
 ********************************************************/  
 
 class Accion{

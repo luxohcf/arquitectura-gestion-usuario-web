@@ -28,6 +28,7 @@ if(strlen($nomUser) > 12)
 	<link href="css/Mant/Perfil.css" rel="stylesheet">
 	<link href="css/Mant/Recurso.css" rel="stylesheet">
 	<link href="css/Mant/Accion.css" rel="stylesheet">
+	<link href="css/Mant/Permiso.css" rel="stylesheet">
 	<script src="js/jquery-1.8.2.js"></script>
 	<script src="js/jquery-ui-1.9.1.custom.js"></script>
 	<!-- JScrollable -->
@@ -55,6 +56,7 @@ if(strlen($nomUser) > 12)
 	<script type="text/javascript" src="js/Mant/Perfil.js"></script>
 	<script type="text/javascript" src="js/Mant/Recurso.js"></script>
 	<script type="text/javascript" src="js/Mant/Accion.js"></script>
+	<script type="text/javascript" src="js/Mant/Permiso.js"></script>
 </head>
 <body>
 <div id="principal">
@@ -314,10 +316,76 @@ if(strlen($nomUser) > 12)
 		       		<h3>No disponible en esta versión</h3>
 		       	</div>
 		       	<div id="D" style="display: none">
-		       		D - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+		       		<div id="contenidoFormPermisos">
+                            <form id="FormPermisos">
+                            <div id="datosPermisos">
+                                <table id="tablaMPermisos">
+                                <tr>
+                                    <td><p>Perfil</p></td>
+                                    <td>
+                                        <select id="FormPermisosIDPerfil" name="FormPermisosIDPerfil">
+                                        </select>
+                                    </td>
+                                    <td><p>&nbsp; Recurso</p></td>
+                                    <td>
+                                        <select id="FormPermisosIDRecurso" name="FormPermisosIDRecurso">
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p>Acción</p></td>
+                                    <td>
+                                        <select id="FormPermisosIDAccion" name="FormPermisosIDAccion">
+                                        </select>
+                                    </td>
+                                    <td><p>&nbsp; Permiso </p></td>
+                                    <td><input id="FormPermisosPermiso" name="FormPermisosPermiso" type="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                </table>
+                            </div>
+                            </form>
+                            <br>
+                            <div id="botonesFormRegMPermisos">
+                                <input type="button" id="btRegPermisosG"  value="Grabar" />
+                                <input type="button" id="btRegPermisosE"  value="Eliminar" />
+                                <input type="button" id="btRegPermisosL"  value="Limpiar" />
+                            </div>
+                            <div id="contTablaPermisos">
+                                <table id="tablaPermisos">
+                                <thead>
+                                    <tr>
+                                        <th>ID Perfil</th>
+                                        <th>Perfil</th>
+                                        <th>ID Recurso</th>
+                                        <th>Recurso</th>
+                                        <th>ID Acción</th>
+                                        <th>Acción</th>
+                                        <th>Permiso</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 
+                                </tbody>
+                            </table>
+                         </div>
+                        </div>
 		       	</div>
-		       	<div id="T" style="display: none">
-		       		T - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+		       	<div id="T" style="display: none; font-size: 18px">
+		       	  <p style="font-size: 18px;">
+		       	    <h4>
+		       		 <?php echo "Estimado ".$_SESSION['usuario']; ?>
+		       		</h4>
+                    Tus datos son:
+                    </br>
+                    ID Aplicación cliente: <?php echo $_SESSION['id_Cliente']; ?> 
+		       		</br>
+		       		Llave 1: <?php echo $_SESSION['LLAVE1']; ?> 
+                    </br>
+                    Llave 2: <?php echo $_SESSION['LLAVE2']; ?> 
+                    </br>
+		          </p>
 		       	</div>
 	       </div>
 	     </td>
@@ -363,6 +431,12 @@ if(strlen($nomUser) > 12)
     ¿Seguro que desea eliminar el registro?
 </div>
 <div id="confirmAccG">
+    ¿Seguro que desea guardar el registro?
+</div>
+<div id="confirmPermB">
+    ¿Seguro que desea eliminar el registro?
+</div>
+<div id="confirmPermG">
     ¿Seguro que desea guardar el registro?
 </div>
 </body>

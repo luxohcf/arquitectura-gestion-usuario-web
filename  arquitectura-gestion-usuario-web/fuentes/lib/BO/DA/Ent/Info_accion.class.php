@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Info_accion autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Info_accion Autor: Luxo Lizama 
 ********************************************************/  
 
 class Info_accion{

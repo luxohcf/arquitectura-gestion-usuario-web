@@ -26,7 +26,7 @@ $query = "SELECT
         INNER JOIN usuario U ON IU.ID_USUARIO = U.ID_USUARIO
         LEFT JOIN usuarios_grupousuario UG ON IU.ID_USUARIO = UG.ID_USUARIO
         LEFT JOIN grupo_usuario G ON UG.ID_GRUPO = G.ID_GRUPO
-        WHERE U.ID_CLIENTE = '$id' ";
+        WHERE U.ID_CLIENTE = '$id' AND U.ID_USUARIO != '$idUsu'";
 
     if($Info_usuario["ID_USUARIO"] != NULL)
     {

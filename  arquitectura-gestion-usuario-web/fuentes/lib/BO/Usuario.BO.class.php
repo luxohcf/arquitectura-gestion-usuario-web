@@ -2,8 +2,8 @@
 
 include('DA\Usuario.DA.class.php');
 /********************************************************  
-* Clase UsuarioBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase UsuarioBO
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class UsuarioBO {

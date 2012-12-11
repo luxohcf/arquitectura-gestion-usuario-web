@@ -2,8 +2,8 @@
 
 include('..\DA\Historico.DA.class.php');
 /********************************************************  
-* Clase HistoricoBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase HistoricoBO 
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class HistoricoBO {

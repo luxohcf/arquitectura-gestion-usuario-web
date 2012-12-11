@@ -2,8 +2,8 @@
 
 include('..\DA\Info_recurso.DA.class.php');
 /********************************************************  
-* Clase Info_recursoBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Info_recursoBO
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class Info_recursoBO {

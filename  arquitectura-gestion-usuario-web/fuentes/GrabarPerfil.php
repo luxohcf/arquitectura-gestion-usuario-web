@@ -13,7 +13,7 @@ $dsPer = (isset($_POST['FormRegPerDesc']))?$_POST['FormRegPerDesc']:NULL;
 
 $mySqli = new mysqli($V_HOST, $V_USER, $V_PASS, $V_BBDD);
 
-$querySelect = "SELECT 1 FROM perfil WHERE ID_PERFIL = '$idPer'";
+$querySelect = "SELECT 1 FROM perfil WHERE ID_PERFIL = '$idPer' AND ID_CLIENTE = '$idCli'";
 
 if($mySqli->connect_errno)
 {

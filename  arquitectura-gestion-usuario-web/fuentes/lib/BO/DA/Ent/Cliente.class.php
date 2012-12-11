@@ -1,8 +1,7 @@
 <?php
 
 /********************************************************  
-* Clase Cliente autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Cliente Autor: Luxo Lizama 
 ********************************************************/  
 
 class Cliente{

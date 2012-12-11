@@ -2,8 +2,7 @@
 
 include('..\Ent\Historico.class.php');
 /********************************************************  
-* Clase HistoricoDA autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase HistoricoDA Luxo Lizama 
 ********************************************************/  
 
 class HistoricoDA {
@@ -23,10 +22,11 @@ private $BBDD; // Base de datos
 
 function __construct()
 {
-	$this->Host = "localhost";
-	$this->User = "AGUW";
-	$this->Pass = "AGUW";
-	$this->BBDD = "BD_Sistema";
+    require("/../../../../config/parametros.php");
+    $this->Host = $V_HOST;
+    $this->User = $V_USER;
+    $this->Pass = $V_PASS;
+    $this->BBDD = $V_BBDD;
 }
 /***********************************************  
 * Funciones de acceso a la capa de datos       *  

@@ -2,8 +2,8 @@
 
 include('..\DA\Info_accion.DA.class.php');
 /********************************************************  
-* Clase Info_accionBO autogenerada por: 
-* 	generadorEntidades.php v1.0 Autor: Luxo Lizama 
+* Clase Info_accionBO
+* Autor: Luxo Lizama 
 ********************************************************/  
 
 class Info_accionBO {

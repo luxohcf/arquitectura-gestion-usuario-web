@@ -1,0 +1,33 @@
+Instrucciones de Instalación Arquitectura de Gestión de Usuario Web:
+
+1.- Copiar la carpeta "Layout" en el directorio 'www' o 'htdocs' dependiendo del servidor web
+2.- En la ruta "Layout/config" modificar el archivo "Config.xml" con los datos del servidor MySQL:
+Si no se desea modificar la configuración por defecto los datos seran:
+
+Host=localhost
+User=AGUW
+Password=AGUW
+BBDD=BD_Sistema
+depurarSQL=0
+depurarDUMP=0
+
+3.- Crear la siguiente base de datos en el servidor localhost:
+
+CREATE DATABASE BD_Sistema;
+
+4.- Crear el siguiente usuario con privilegios sobre la base de datos recien creada:
+
+CREATE USER 'AGUW'@'localhost' IDENTIFIED BY 'AGUW';
+GRANT ALL ON BD_Sistema.* TO 'AGUW'@'localhost';
+
+5.- Importar el fichero "ScriptMysqlAGUW.sql" sobre la base de datos BD_Sistema para cargar las tablas
+
+6.- Importar el fichero "ScriptCargaDatosPrueba.sql" sobre la base de datos BD_Sistema para cargar los datos
+
+7.- Ingresar a la ruta "http://localhost/Layout/" y comprobar que se muestra el sitio
+
+8.- Iniciar sesión con el usuario "UsuarioCliente1" contraseña "123456" para comprobar que se ha instalado la aplicación correctamente.
+
+
+
+
